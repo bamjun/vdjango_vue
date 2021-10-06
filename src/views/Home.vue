@@ -13,7 +13,7 @@
 
       <div
         class="column is-3"
-        v-for="product in lastestProducts"
+        v-for="product in latestProducts"
         v-bind:key="product.id"
       >
         <div class="box">
@@ -21,7 +21,7 @@
             <img :src="product.get_thumbnail" />
           </fogure>
           <h3 class="is-size-4">{{ product.name }}</h3>
-          <p class="is-size-6 has-text-grey">${{ product.price }}</p>
+          <p class="is-size-6 has-text-grey">￦{{ product.price }}</p>
 
           View details
         </div>
