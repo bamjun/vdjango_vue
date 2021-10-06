@@ -1,7 +1,7 @@
 <template>
   <div class="page-product">
     <div class="columns is-multiline">
-      <div class="comumn is-9">
+      <div class="column is-9">
         <figure class="image mb-6">
           <img v-bind:src="product.get_image" />
         </figure>
@@ -47,6 +47,16 @@ export default {
     getProduct() {
       const category_slug = this.$route.params.category_slug;
       const product_slug = this.$route.params.product_slug;
+
+      axios
+        .get(`/api/v1/products/${category_slug}/${product_slug}`)
+        .then((response) => {
+          this.product = response.data;
+          document.title = this.product.name + " | VDjango";
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 };
